@@ -87,7 +87,6 @@
                 <td>Product Price</td>
                 <td>Quantity</td>
                 <td>Total Price</td>
-                <td>Change Quantity</td>
             </tr>
             <c:set var="totalprice" value="0" />
             <c:forEach var="row" items="${result.rows}">
@@ -98,7 +97,6 @@
                         <td><c:out value="${cookie[row.pid].value}" /></td>
                         <td><fmt:formatNumber type="number" maxFractionDigits="3" value="${row.price * cookie[row.pid].value}" /></td>
                         <c:set var="totalprice" value="${totalprice + row.price * cookie[row.pid].value}" />
-                        <td><input type="number" name="${row.pid}" value="${cookie[row.pid].value}"></td>
                     </tr>
                 </c:if>
             </c:forEach>
